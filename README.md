@@ -1,4 +1,4 @@
-# Windows 10 Improvements
+# Windows 10 Improvements (Windows 10 Scripts For Better Experience)
 Some QoL changes i use myself i wanted to share very likely compatible with Windows 11 too, even if its not compatible somehow dont worry its 100% reverseable.
 
 > [!NOTE]
