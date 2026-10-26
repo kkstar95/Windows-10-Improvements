@@ -19,13 +19,17 @@ goto menu
 echo Renaming default Edit to "Edit with Notepad"...
 reg add "HKCR\txtfile\shell\edit" /v "MUIVerb" /d "Edit with Notepad" /f
 reg add "HKCR\txtfile\shell\edit" /v "Icon" /d "write.exe" /f
-reg add "HKCR\batfile\shell\edit\command" /ve /d "notepad.exe \"%%1\"" /f
-reg add "HKCR\batfile\shell\edit" /v "MUIVerb" /d "Edit with Notepad" /f
-reg add "HKCR\batfile\shell\edit" /v "Icon" /d "write.exe" /f
-reg add "HKCR\cmdfile\shell\edit\command" /ve /d "notepad.exe \"%%1\"" /f
-reg add "HKCR\cmdfile\shell\edit" /v "MUIVerb" /d "Edit with Notepad" /f
-reg add "HKCR\cmdfile\shell\edit" /v "Icon" /d "write.exe" /f
-echo Done! Right-click Edit menu renamed with Write icon.
+reg add "HKCR\batfile\shell\Edit" /v "MUIVerb" /d "Edit" /f
+reg add "HKCR\batfile\shell\Edit" /v "SubCommands" /d "" /f
+reg add "HKCR\batfile\shell\Edit\shell\EditWithNotepad" /v "MUIVerb" /d "Edit with Notepad" /f
+reg add "HKCR\batfile\shell\Edit\shell\EditWithNotepad" /v "Icon" /d "write.exe" /f
+reg add "HKCR\batfile\shell\Edit\shell\EditWithNotepad\command" /ve /d "notepad.exe \"%%1\"" /f
+reg add "HKCR\cmdfile\shell\Edit" /v "MUIVerb" /d "Edit" /f
+reg add "HKCR\cmdfile\shell\Edit" /v "SubCommands" /d "" /f
+reg add "HKCR\cmdfile\shell\Edit\shell\EditWithNotepad" /v "MUIVerb" /d "Edit with Notepad" /f
+reg add "HKCR\cmdfile\shell\Edit\shell\EditWithNotepad" /v "Icon" /d "write.exe" /f
+reg add "HKCR\cmdfile\shell\Edit\shell\EditWithNotepad\command" /ve /d "notepad.exe \"%%1\"" /f
+echo Done! Right-click Edit > Edit with Notepad.
 pause
 goto menu
 
@@ -33,11 +37,9 @@ goto menu
 echo Restoring default Edit name...
 reg add "HKCR\txtfile\shell\edit" /v "MUIVerb" /d "Edit" /f
 reg delete "HKCR\txtfile\shell\edit" /v "Icon" /f
-reg add "HKCR\batfile\shell\edit" /v "MUIVerb" /d "Edit" /f
-reg delete "HKCR\batfile\shell\edit" /v "Icon" /f
-reg add "HKCR\cmdfile\shell\edit" /v "MUIVerb" /d "Edit" /f
-reg delete "HKCR\cmdfile\shell\edit" /v "Icon" /f
-echo Done! Right-click Edit menu restored.
+reg delete "HKCR\batfile\shell\Edit" /f
+reg delete "HKCR\cmdfile\shell\Edit" /f
+echo Done! Custom Edit submenu removed for .bat and .cmd files.
 pause
 goto menu
 
