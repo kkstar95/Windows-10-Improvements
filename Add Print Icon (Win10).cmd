@@ -17,18 +17,20 @@ goto menu
 
 :add
 echo Adding print icon to Print option...
-reg add "HKCR\txtfile\shell\print" /v "Icon" /d "shell32.dll,16" /f
 reg add "HKCR\batfile\shell\print" /v "Icon" /d "shell32.dll,16" /f
 reg add "HKCR\cmdfile\shell\print" /v "Icon" /d "shell32.dll,16" /f
+reg add "HKCR\SystemFileAssociations\image\shell\print" /v "Icon" /d "shell32.dll,16" /f
+reg add "HKCR\SystemFileAssociations\text\shell\print" /v "Icon" /d "shell32.dll,16" /f
 echo Done! Print icon added to Print option.
 pause
 goto menu
 
 :remove
 echo Removing print icon from Print option...
-reg delete "HKCR\txtfile\shell\print" /v "Icon" /f
 reg delete "HKCR\batfile\shell\print" /v "Icon" /f
 reg delete "HKCR\cmdfile\shell\print" /v "Icon" /f
+reg delete "HKCR\SystemFileAssociations\image\shell\print" /v "Icon" /f
+reg delete "HKCR\SystemFileAssociations\text\shell\print" /v "Icon" /f
 echo Done! Print icon removed from Print option.
 pause
 goto menu
